@@ -22,33 +22,46 @@ public class ValidadorStrings {
         return resultado;
     }
   
-    //
+    //REVISADO Y FUNCIONANDO
+    //DA TRUE SI EL TEXTO TIENE NADA, ESPACIOS O ENTERS
     public static boolean estaVacio(String texto){
-        boolean resultado = true;
+        boolean resultado = false;
 
-        if (texto != null){
-            resultado = false;
+        if ((texto == null)||(texto.isBlank())){
+            resultado = true;
         }
         
-        System.out.println(resultado);
         return resultado;
     }
 
-    //
+    //REVISADO Y FUNCIONANDO
+    //VERIFICA QUE EL TEXTO INGRESADO SEAN SOLO NUMEROS, DA TRUE SI CUMPLE
     public static boolean contieneSoloNumeros(String texto){
-        boolean resultado = true;
+        boolean resultado = texto.matches("\\d+");
+        
         return resultado;
     }
 
-    //
+    //REVISADO Y FUNCIONANDO
+    //VERIFICA QUE EL TEXTO INGRESADO SEAN SOLO LETRAS, DA TRUE SI CUMPLE
     public static boolean contieneSoloLetras(String texto){
-        boolean resultado = true;
+
+        boolean resultado = texto.matches("^\\p{L}+$");
+         
         return resultado;
     }
 
-    //
+    //AUYN NO ESTA LISTO
+    
+    //VERIFICA QUE LA CONTRASEÑA CUMPLA CON ENTRE 8 Y 12 CARACTERES, AL MENOS UN NUMERO, 
+    // UNA LETRA MINUSCULA, UNA MAYUSCULA Y UN CARACTER ESPECIAL
     public static boolean esPasswordValido(String texto){
-        boolean resultado = true;
+       
+        boolean resultado = texto.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])$");
+        //int longitud = texto.length();
+    
+       
+        System.out.println(resultado);
         return resultado;
     }
 

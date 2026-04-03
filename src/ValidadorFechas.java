@@ -47,15 +47,16 @@ public class ValidadorFechas {
     }
 //REVISADO
     public static boolean esHorarioLaboral(LocalDateTime fecha){
+        
         boolean resultado = true;
         DayOfWeek diaDeLaSemana = fecha.getDayOfWeek();
         LocalTime hora = fecha.toLocalTime();
         LocalTime inicioHorarioLaboral = LocalTime.of(8, 00);
+        System.out.println(diaDeLaSemana);
         LocalTime finHorarioLaboralES = LocalTime.of(18, 00);
         LocalTime finHorarioLaboralFS = LocalTime.of(13, 00);
             //ENTRE SEMANA - ENTRE 8 Y 18
-        if ((diaDeLaSemana != DayOfWeek.MONDAY) || (diaDeLaSemana != DayOfWeek.TUESDAY) || (diaDeLaSemana != DayOfWeek.WEDNESDAY) || (diaDeLaSemana != DayOfWeek.THURSDAY) || (diaDeLaSemana != DayOfWeek.FRIDAY)){
-            resultado = false;
+        if ((diaDeLaSemana == DayOfWeek.MONDAY) || (diaDeLaSemana == DayOfWeek.TUESDAY) || (diaDeLaSemana == DayOfWeek.WEDNESDAY) || (diaDeLaSemana == DayOfWeek.THURSDAY) || (diaDeLaSemana == DayOfWeek.FRIDAY)){
             if ((hora.isBefore(inicioHorarioLaboral)) || (hora.isAfter(finHorarioLaboralES))){
                 resultado = false;
             }
@@ -70,7 +71,7 @@ public class ValidadorFechas {
         if ((diaDeLaSemana == DayOfWeek.SUNDAY)){
             resultado = false;    
         }
-
+        System.out.println(resultado);
     return resultado;
     } 
 
