@@ -14,16 +14,11 @@ public abstract class GeneradorCodigos {
         this.prefijo = prefijo;
     }
 
+    public abstract boolean tieneFormatoValido(String codigo);
+   
 
-//metodos estaticos (por codificar)
-
-    public static boolean tieneFormatoValido(String codigo){
-        return true;
-    }
-
-    public static String generarCodigo(){
-        return "codigo";
-    }
+    public abstract String generarCodigo();
+    
     
 }
 
